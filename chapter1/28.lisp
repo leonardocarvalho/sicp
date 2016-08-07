@@ -8,9 +8,9 @@
 (define (expmod-mod base exp m)
   (cond ((= exp 0) 1)
         ((even? exp)
-         (special-check (expmod base (/ exp 2) m) m))
+         (special-check (expmod-mod base (/ exp 2) m) m))
         (else
-         (remainder (* base (expmod base (- exp 1) m))
+         (remainder (* base (expmod-mod base (- exp 1) m))
                     m))))
 
 
