@@ -41,7 +41,7 @@
           ((divides? test-divisor n) test-divisor)
           (else (find-divisor n (next test-divisor)))))
 
-  (= n (smallest-divisor n)))
+  (if (> n 1) (= n (smallest-divisor n)) false))
 
 (define (square x) (* x x))
 
