@@ -1,0 +1,11 @@
+(define (iterative-improve improve good-enough?)
+  (define (run guess)
+    (if (good-enough? guess) guess (run (improve guess))))
+  run)
+
+(define (sqrt-46 x)
+  (define (improve guess)
+    (average guess (/ x guess)))
+  (define (good-enough? v)
+    (< (abs (- x (* v v))) 0.0001))
+  ((iterative-improve improve good-enough?) (/ x 2.)))
